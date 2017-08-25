@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="rus">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+<div class="site-body wrapper" id="calculate">
+    <h1 class="title-box">{{title}}</h1>
+    <div class="inform-page">
+        <div id="first">
+            <div class="select">
+                    <select size="1" v-model="S1">
+                        <option disabled selected> Вид заявки </option>
+                        <option value="1">1. Постоянное присоединение</option>
+                        <option value="2">2. Временное присоединение</option>
+                    </select>
+            </div>
+            <br> <!-- Это временно, заменить отсутп на css правило -->
+            <div class="input">
+                <label for="N">Заявляемая мощность</label>
+                <input type="text" name="N" placeholder="Заявляемая мощность" v-model="N">
+            </div>
+            <br> <!-- Это временно, заменить отсутп на css правило -->
+            <div class="check" v-if="N<=15 && S1 == 1">
+                    <p><input type="checkbox" name="a" value="check" v-model="Conditions">При условиях:</p>
+                    <ul>
+                        <li>- если в границах муниципальных районов, городских округов и на внутригородских территориях городов федерального значения одно и то же лицо может осуществить технологическое присоединение энергопринимающих устройств, принадлежащих ему на праве собственности или на ином законном основании, с платой за технологическое присоединение в размере, не превышающем 550 рублей, не более одного раза в течение 3 лет.</li>
+                        <li>- при технологическом присоединении энергопринимающих устройств, принадлежащих лицам, владеющим земельным участком по договору аренды, заключенному на срок не более одного года, на котором расположены присоединяемые энергопринимающие устройства;</li>
+                        <li>- при технологическом присоединении энергопринимающих устройств, расположенных в жилых помещениях многоквартирных домов.</li>
+                    </ul>
+            </div>
+
+            <div class="input">
+                    <span>Категория надежности</span>
+                    <p><input type="radio" name="a" value="3"> 3 – Питание от одного независимого источника</p>
+                    <p><input type="radio" name="a" value="2" :disabled="!Conditions && N<=15"> 2 – Питание от двух независимых источников</p>
+            </div>
+            <br> <!-- Это временно, заменить отсутп на css правило -->
+            <div id="build" v-if="Conditions || S1 == 1 && N>15">
+
+                <div class="select">
+                        <select size="1">
+                            <option disabled selected> Класс напряжения </option>
+                            <option value="0.4">0,4 кВ</option>
+                            <option value="6(10)">6(10) кВ</option>
+                        </select>
+                </div>
+                <br> <!-- Это временно, заменить отсутп на css правило -->
+                <div class="check">
+                        <p><input type="checkbox" name="a" value="check">Необходимо строительство</p>
+                </div>
+                <br> <!-- Это временно, заменить отсутп на css правило -->
+                <div class="select">
+                        <select size="1">
+                            <option disabled selected> Расчет по: </option>
+                            <option value="мощности">Мощности</option>
+                            <option value="стандартизированной ставке">Стандартизированной ставке</option>
+                        </select>
+                </div>
+            </div>
+        </div>
+        <div id="second">
+        </div>
+        <div id="third">
+        </div>
+        <div id="forth">
+        </div>
+    </div>
+</div>
+<script src="https://unpkg.com/vue@2.4.2"></script>
+<script>
+    var app = new Vue({
+        el: '#calculate',
+        data: {
+            title: 'КАЛЬКУЛЯТОР ТЕХНОЛОГИЧЕСКОГО ПРИСОЕДИНЕНИЯ',
+            S1: '',
+            N: 0,
+            Conditions: false
+        }
+    })
+</script>
+</body>
+</html>

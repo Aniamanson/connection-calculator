@@ -13,7 +13,7 @@
         <div id="first">
             <div class="select">
                     <select size="1" v-model="S1">
-                        <option disabled selected> Вид заявки </option>
+                        <option value="0" disabled selected> Вид заявки </option>
                         <option value="1">1. Постоянное присоединение</option>
                         <option value="2">2. Временное присоединение</option>
                     </select>
@@ -76,7 +76,7 @@
         el: '#calculate',
         data: {
             title: 'КАЛЬКУЛЯТОР ТЕХНОЛОГИЧЕСКОГО ПРИСОЕДИНЕНИЯ',
-            S1: '',             //вид заявки (1 - постоянное, 2 - временное)
+            S1: 0,             //вид заявки (1 - постоянное, 2 - временное)
             N: 0,               //заявленная мощность
             Conditions: false   //признак условия
         }

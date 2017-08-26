@@ -21,7 +21,7 @@
             <br> <!-- Это временно, заменить отсутп на css правило -->
             <div class="input">
                 <label for="N">Заявляемая мощность</label>
-                <input type="text" id="N" placeholder="Заявляемая мощность" v-model="N">
+                <input type="text" name="N" placeholder="Заявляемая мощность" v-model="N">
             </div>
             <br> <!-- Это временно, заменить отсутп на css правило -->
             <div class="check" v-if="N<=15 && S1 == 1">
@@ -70,7 +70,6 @@
         </div>
     </div>
 </div>
-
 <script src="https://unpkg.com/vue@2.4.2"></script>
 <script>
     var app = new Vue({

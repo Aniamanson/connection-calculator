@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Калькулятор</title>
+    <link rel="stylesheet" href="magwai.css">
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
@@ -11,62 +12,60 @@
     <h1 class="title-box">{{title}}</h1>
     <div class="inform-page">
         <div id="first">
-            <div class="select">
+            <div class="left">
+                <div class="select">
                     <select size="1" v-model="S1">
                         <option value="0" disabled selected> Вид заявки </option>
                         <option value="1">1. Постоянное присоединение</option>
                         <option value="2">2. Временное присоединение</option>
                     </select>
+                </div>
+                <div class="input">
+                    <label for="N">Заявляемая мощность</label>
+                    <input type="text" id="N" placeholder="Заявляемая мощность" v-model="N">
+                </div>
             </div>
-            <br> <!-- Это временно, заменить отсутп на css правило -->
-            <div class="input">
-                <label for="N">Заявляемая мощность</label>
-                <input type="text" id="N" placeholder="Заявляемая мощность" v-model="N">
-            </div>
-            <br> <!-- Это временно, заменить отсутп на css правило -->
-            <div class="check" v-if="N<=15 && S1 == 1">
-                    <p><input type="checkbox" name="a" value="check" v-model="Conditions">При условиях:</p>
-                    <ul>
-                        <li>- если в границах муниципальных районов, городских округов и на внутригородских территориях городов федерального значения одно и то же лицо может осуществить технологическое присоединение энергопринимающих устройств, принадлежащих ему на праве собственности или на ином законном основании, с платой за технологическое присоединение в размере, не превышающем 550 рублей, не более одного раза в течение 3 лет.</li>
-                        <li>- при технологическом присоединении энергопринимающих устройств, принадлежащих лицам, владеющим земельным участком по договору аренды, заключенному на срок не более одного года, на котором расположены присоединяемые энергопринимающие устройства;</li>
-                        <li>- при технологическом присоединении энергопринимающих устройств, расположенных в жилых помещениях многоквартирных домов.</li>
-                    </ul>
-            </div>
-
-            <div class="input">
+            <div class="right">
+                <div class="input">
                     <span>Категория надежности</span>
                     <p><input type="radio" name="a" value="3"> 3 – Питание от одного независимого источника</p>
                     <p><input type="radio" name="a" value="2" :disabled="!Conditions && N<=15"> 2 – Питание от двух независимых источников</p>
-            </div>
-            <br> <!-- Это временно, заменить отсутп на css правило -->
-            <div id="build" v-if="Conditions || S1 == 1 && N>15">
-
-                <div class="select">
-                        <select size="1">
-                            <option disabled selected> Класс напряжения </option>
-                            <option value="0.4">0,4 кВ</option>
-                            <option value="6(10)">6(10) кВ</option>
-                        </select>
-                </div>
-                <br> <!-- Это временно, заменить отсутп на css правило -->
-                <div class="check">
-                        <p><input type="checkbox" name="a" value="check">Необходимо строительство</p>
-                </div>
-                <br> <!-- Это временно, заменить отсутп на css правило -->
-                <div class="select">
-                        <select size="1">
-                            <option disabled selected> Расчет по: </option>
-                            <option value="мощности">Мощности</option>
-                            <option value="стандартизированной ставке">Стандартизированной ставке</option>
-                        </select>
                 </div>
             </div>
         </div>
         <div id="second">
+            <div class="check" v-if="N<=15 && S1 == 1">
+                <p><input type="checkbox" value="check" v-model="Conditions">При условиях:</p>
+                <ul>
+                    <li> если в границах муниципальных районов, городских округов и на внутригородских территориях городов федерального значения одно и то же лицо может осуществить технологическое присоединение энергопринимающих устройств, принадлежащих ему на праве собственности или на ином законном основании, с платой за технологическое присоединение в размере, не превышающем 550 рублей, не более одного раза в течение 3 лет.</li>
+                    <li> при технологическом присоединении энергопринимающих устройств, принадлежащих лицам, владеющим земельным участком по договору аренды, заключенному на срок не более одного года, на котором расположены присоединяемые энергопринимающие устройства;</li>
+                    <li> при технологическом присоединении энергопринимающих устройств, расположенных в жилых помещениях многоквартирных домов.</li>
+                </ul>
+            </div>
         </div>
         <div id="third">
+            <div id="build" v-if="Conditions || S1 == 1 && N>15">
+                <div class="select">
+                    <select size="1">
+                        <option disabled selected> Класс напряжения </option>
+                        <option value="0.4">0,4 кВ</option>
+                        <option value="6(10)">6 (10) кВ</option>
+                    </select>
+                </div>
+                <div class="check">
+                    <p><input type="checkbox" value="check">Необходимо строительство</p>
+                </div>
+                <div class="calc">
+                    <select size="1">
+                        <option disabled selected> Расчет по: </option>
+                        <option value="мощности">Мощности</option>
+                        <option value="стандартизированной ставке">Стандартизированной ставке</option>
+                    </select>
+                </div>
+            </div>
         </div>
         <div id="forth">
+            <h3>Параметры для расчета стоимости по ставке за максимальную мощность</h3>
         </div>
     </div>
 </div>
@@ -77,9 +76,9 @@
         el: '#calculate',
         data: {
             title: 'КАЛЬКУЛЯТОР ТЕХНОЛОГИЧЕСКОГО ПРИСОЕДИНЕНИЯ',
-            S1: 0,             //вид заявки (1 - постоянное, 2 - временное)
+            S1: 1,             //вид заявки (1 - постоянное, 2 - временное)
             N: 0,               //заявленная мощность
-            Conditions: false   //признак условия
+            Conditions: true   //признак условия
         }
     })
 </script>

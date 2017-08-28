@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Калькулятор</title>
+    <title>Калькулятор технологического присоединения</title>
     <link rel="stylesheet" href="magwai.css">
     <link rel="stylesheet" href="main.css">
 </head>
@@ -23,6 +23,7 @@
                 <div class="input">
                     <label for="N">Заявляемая мощность</label>
                     <input type="text" id="N" placeholder="Заявляемая мощность" v-model="N">
+                    кВт
                 </div>
             </div>
             <div class="right">
@@ -76,9 +77,9 @@
         el: '#calculate',
         data: {
             title: 'КАЛЬКУЛЯТОР ТЕХНОЛОГИЧЕСКОГО ПРИСОЕДИНЕНИЯ',
-            S1: 1,             //вид заявки (1 - постоянное, 2 - временное)
-            N: 0,               //заявленная мощность
-            Conditions: true   //признак условия
+            S1: 0,             //вид заявки (1 - постоянное, 2 - временное)
+            N: "",               //заявленная мощность
+            Conditions: false   //признак условия
         }
     })
 </script>

@@ -13,7 +13,6 @@ p {
 
 .site-body {
     width: 1200px;
-    height: 1390px;
     margin: 0 auto;
     position: relative;
     padding: 80px 10px 85px 10px;
@@ -24,7 +23,6 @@ p {
     font-size: 30px;
     font-weight: 800;
     color: #282828;
-    line-height: 1;
     text-transform: uppercase;
     font-family: 'Raleway';
     line-height: 1.2;
@@ -43,8 +41,8 @@ p {
     margin-top: 45px;
     padding-top: 0;
     width: 1200px;
-    height: 1290px;
     background: #e7eff6;
+    padding-bottom: 40px;
 }
 
 #first {
@@ -94,7 +92,7 @@ select {
 
 #second {
     position: relative;
-    padding: 0px 40px 30px 40px;
+    padding: 0 40px 30px 40px;
 }
 
 .check input {
@@ -103,6 +101,7 @@ select {
     width:19px;
     height:19px;
 }
+
 .check p {
     font-size: 16px;
     font-weight: bold;
@@ -123,7 +122,7 @@ select {
 
 #third {
     position: relative;
-    padding: 0 40px 40px 40px;
+    padding: 0 40px 0 40px;
 }
 
 .calc {
@@ -131,12 +130,202 @@ select {
 }
 
 #forth {
-    margin: 0 40px 40px 40px;
+    margin: 40px;
     width: 1120px;
-    height: 600px;
+    background: #f2f4f5;
+    border: #59778c 2px solid;
+}
+
+.options {
+    margin: 0 25px 0 25px;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: 'Open Sans', sans-serif;
+    color: #0d3959;
+}
+
+.wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+}
+
+.source {
+    background: white;
+    border: #59778c 1px solid;
+    margin: 25px 25px 0 25px;
+    width: auto;
+}
+
+.source .in {
+    padding: 10px 10px 10px 30px;
+    color: black;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.inner_wrap {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 10px 20px 10px;
+}
+
+.inner_wrap .right {
+    width: 400px;
+}
+
+.inner_wrap p {
+    color: black;
+    padding-top: 10px;
+}
+
+.bottom {
+    margin: 0 25px 25px 25px;
+}
+
+.source .in_2 {
+    padding: 10px 10px 10px 10px;
+    color: black;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.in_2 input {
+    vertical-align: bottom;
+    display: inline-block;
+}
+
+
+
+#fifth {
+    margin: 25px 40px 0 40px;
+    width: 1120px;
+}
+
+#fifth button {
+    width: 1120px;
+    border-radius: 5px;
+    font-size: 16px;
+    text-transform: none;
+}
+
+.result p {
+    font-size: 16px;
+    font-weight: bold;
+    color: #0d3959;
+}
+
+.total {
+    background: white;
+    border: #59778c 1px solid;
+    margin-top: 25px;
+    width: auto;
+    padding: 5px 20px 20px 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.total p {
+    font-weight: normal;
+    color: black;
+    padding-top: 15px;
+}
+
+.total .right {
+    width: 150px;
+    text-align: right;
+}
+
+
+/* стандарт. индекс */
+
+#forth_2 {
+    margin: 40px;
+    width: 1120px;
+    background: #f2f4f5;
+    border: #59778c 2px solid;
+}
+
+.index {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 435px;
+    margin-left: 670px;
+}
+
+#forth_2 p {
+    padding: 15px;
+}
+
+.sqrt {
+    background: white;
+    margin: 15px 0 15px 0;
+    width: 30px;
+    height: 20px;
+    border: #59778c 1px solid;
+}
+
+#forth_2 .source {
+    margin: 0 25px 0 25px;
+    padding: 25px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#forth_2 input {
+    width: 150px;
     background: white;
     border: #59778c 1px solid;
 }
+
+#forth_2 ::-webkit-input-placeholder {
+    color: black;
+    font-size: 16px;
+}
+
+#forth_2 span {
+    color: black;
+    font-size: 16px;
+    padding-top: 15px;
+}
+
+#forth_2 .source .index {
+    margin: 0;
+    width: 350px;
+}
+
+#forth_2 .source .sqrt {
+    width: 40px;
+    height: 20px;
+    padding: 5px;
+    margin-top: 8px;
+    text-align: center;
+    background: #59778c;
+    color: white;
+}
+
+#forth_2 button {
+    padding: 15px;
+    background: #59778c;
+    color: white;
+    font-size: 14px;
+    text-transform: none;
+    font-weight: 500;
+    margin: 25px;
+    border-radius: 5px;
+}
+
+#forth_2 button:hover {
+    background: #678da8;
+}
+
+
+
 
 
 

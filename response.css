@@ -1,0 +1,141 @@
+@media screen and (max-width: 1240px) {
+
+    .site-body {
+        width: 800px;
+        margin: 0 auto;
+        position: relative;
+
+    }
+    .inform-page {
+        margin-top: 45px;
+        padding-top: 0;
+        width: 800px;
+        background: #e7eff6;
+        padding-bottom: 40px;
+    }
+
+    #first {
+        height: 325px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin: 0 auto;
+    }
+
+    .left {
+        width: 500px;
+        height: 155px;
+    }
+
+    .right {
+        width: 500px;
+    }
+
+    #forth {
+        margin: 40px;
+        width: 720px;
+    }
+
+    .options {
+        text-align: center;
+    }
+
+    .inner_wrap {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin: 0 10px 20px 10px;
+    }
+
+    #forth .left {
+        height: auto;
+    }
+
+    #forth .bottom br {
+        display: none;
+    }
+
+    #forth_2 {
+        width: 720px;
+    }
+
+    .index {
+        margin-left: 270px;
+    }
+
+    #forth_2 .source {
+        flex-direction: column;
+        height: 125px;
+        padding-bottom: 22px;
+    }
+
+    #forth_2 .long {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+    }
+
+    #forth_2 span {
+        color: black;
+        font-size: 16px;
+        padding: 15px 0 0 10px;
+    }
+
+    #forth_2 .source .index {
+        width: 102px;
+        margin: 2px 0 0 115px;
+
+    }
+
+    #forth_2 button {
+        padding: 15px;
+        background: #59778c;
+        color: white;
+        font-size: 14px;
+        text-transform: none;
+        font-weight: 500;
+        margin: 25px;
+        border-radius: 5px;
+        width: 670px;
+    }
+
+    #fifth {
+        margin: 25px 40px 0 40px;
+        width: 800px;
+    }
+
+    #fifth button {
+        width: 724px;
+        border-radius: 5px;
+        font-size: 16px;
+        text-transform: none;
+    }
+
+    .result {
+        width: 722px;
+    }
+
+    .total {
+        background-position: right 150%;
+
+    }
+
+    .total .score {
+        color: white;
+    }
+
+
+}
+
+
+
+@media screen and (max-width: 840px) {
+
+    .site-body {
+        width: 360px;
+    }
+
+    .inform-page {
+        width: 360px;
+    }
+}

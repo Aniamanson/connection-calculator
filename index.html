@@ -6,6 +6,7 @@
     <title>Калькулятор технологического присоединения</title>
     <link rel="stylesheet" href="magwai.css">
     <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="response.css">
 </head>
 <body>
 <div class="site-body wrapper" id="calculate">
@@ -22,7 +23,7 @@
                 </div>
                 <div class="input">
                     <label for="N">Заявляемая мощность</label>
-                    <input type="text" id="N" placeholder="Заявляемая мощность" v-model="N">
+                    <input type="text" id="N" v-model="N">
                     кВт
                 </div>
             </div>
@@ -148,11 +149,12 @@
                 </div>
                 <div class="long">
                     <input type="text" placeholder="длина"> <span>км</span>
+                    <div class="index">
+                        <p>Индекс</p>
+                        <div class="sqrt">4.95</div>
+                    </div>
                 </div>
-                <div class="index">
-                    <p>Индекс</p>
-                    <div class="sqrt">4.95</div>
-                </div>
+
             </div>
                 <form action="#">
                     <button>Добавить линию</button>
@@ -167,13 +169,13 @@
             <div class="result">
                 <p>Результаты:</p>
                 <div class="total">
-                    <div class="left">
+                    <div class="wr_score">
                         <p>Итог по ставке за максимальную мощность (руб./кВт)</p>
-                        <p>Итог по стандартизированной ставке (руб./км)</p>
+                        <p class="score">0,00 руб.</p>
                     </div>
-                    <div class="right">
-                        <p>0,00 руб.</p>
-                        <p>0,00 руб.</p>
+                    <div class="wr_score">
+                        <p>Итог по стандартизированной ставке (руб./км)</p>
+                        <p class="score">0,00 руб.</p>
                     </div>
                 </div>
             </div>
@@ -187,16 +189,10 @@
         el: '#calculate',
         data: {
             title: 'КАЛЬКУЛЯТОР ТЕХНОЛОГИЧЕСКОГО ПРИСОЕДИНЕНИЯ',
-<<<<<<< HEAD
             S1: 1,             //вид заявки (1 - постоянное, 2 - временное)
             N: 0,               //заявленная мощность
             Conditions: true,   //признак условия
             Build: false
-=======
-            S1: 0,             //вид заявки (1 - постоянное, 2 - временное)
-            N: "",               //заявленная мощность
-            Conditions: false   //признак условия
->>>>>>> 79ef6266bede5caca0eb8eb8d7674fbdf9bbd709
         }
     })
 </script>

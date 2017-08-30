@@ -218,14 +218,12 @@ select {
 }
 
 .total {
-    background: url("img/bg.png") no-repeat;
+    background: url("img/bg.svg") no-repeat;
+    background-position: right;
     border: #59778c 1px solid;
     margin-top: 25px;
     width: auto;
     padding: 5px 20px 20px 20px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
 }
 
 .total p {
@@ -234,14 +232,21 @@ select {
     padding-top: 15px;
 }
 
-.total .right {
-      text-align: right;
-      color: white;
+.wr_score {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
-.total .right p {
+.total .score {
+    width: 250px;
+    text-align: right;
     color: white;
 }
+
+
+
+
 
 
 
@@ -294,10 +299,16 @@ select {
     font-size: 16px;
 }
 
+#forth_2 .long {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 #forth_2 span {
     color: black;
     font-size: 16px;
-    padding-top: 15px;
+    padding: 15px 0 0 10px;
 }
 
 #forth_2 .source .index {

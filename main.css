@@ -218,7 +218,7 @@ select {
 }
 
 .total {
-    background: white;
+    background: url("img/bg.png") no-repeat;
     border: #59778c 1px solid;
     margin-top: 25px;
     width: auto;
@@ -235,9 +235,14 @@ select {
 }
 
 .total .right {
-    width: 150px;
-    text-align: right;
+      text-align: right;
+      color: white;
 }
+
+.total .right p {
+    color: white;
+}
+
 
 
 /* стандарт. индекс */
@@ -262,11 +267,12 @@ select {
 }
 
 .sqrt {
-    background: white;
     margin: 15px 0 15px 0;
     width: 30px;
     height: 20px;
-    border: #59778c 1px solid;
+    text-align: center;
+    background: #59778c;
+    color: white;
 }
 
 #forth_2 .source {
@@ -323,6 +329,7 @@ select {
 #forth_2 button:hover {
     background: #678da8;
 }
+
 
 
 

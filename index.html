@@ -54,7 +54,7 @@
                     </select>
                 </div>
                 <div class="check">
-                    <p><input type="checkbox" value="check">Необходимо строительство</p>
+                    <p><input type="checkbox" value="check" v-model="Build">Необходимо строительство</p>
                 </div>
                 <div class="calc">
                     <select size="1">
@@ -65,8 +65,118 @@
                 </div>
             </div>
         </div>
-        <div id="forth">
-            <h3>Параметры для расчета стоимости по ставке за максимальную мощность</h3>
+        <div id="forth" v-if="Conditions && Build || S1 == 1 && N>15 ">
+            <p class="options">Параметры для расчета стоимости по ставке за максимальную мощность</p>
+            <div class="wrap">
+                <div class="source">
+                    <p class="in">Строительство линий по первому источнику питания</p>
+                    <div class="inner_wrap">
+                        <div class="left">
+                            <p><input type="radio" name="a" value="3">Воздушная линия 0,4кВ</p>
+                            <p><input type="radio" name="a" value="3">Воздушная линия изолированная 0,4кВ</p>
+                            <p><input type="radio" name="a" value="3">Воздушная линия 6-10кВ</p>
+                            <p><input type="radio" name="a" value="3">Воздушная линия изолированная 6-10кВ</p>
+                        </div>
+                        <div class="right">
+                            <p><input type="radio" name="a" value="3">Кабельная линия 0,4кВ</p>
+                            <p><input type="radio" name="a" value="3">Кабельная линия 6-10кВ</p>
+                            <p><input type="radio" name="a" value="3">Кабельная линия 0,4кВ с приминением ГНБ*</p>
+                            <p><input type="radio" name="a" value="3">Кабельная линия 6(10)кВ с приминением ГНБ*</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="source">
+                    <p class="in">Строительство линий по второму источнику питания</p>
+                    <div class="inner_wrap">
+                        <div class="left">
+                            <p><input type="radio" name="a" value="3">Воздушная линия 0,4кВ</p>
+                            <p><input type="radio" name="a" value="3">Воздушная линия изолированная 0,4кВ</p>
+                            <p><input type="radio" name="a" value="3">Воздушная линия 6-10кВ</p>
+                            <p><input type="radio" name="a" value="3">Воздушная линия изолированная 6-10кВ</p>
+                        </div>
+                        <div class="right">
+                            <p><input type="radio" name="a" value="3">Кабельная линия 0,4кВ</p>
+                            <p><input type="radio" name="a" value="3">Кабельная линия 6-10кВ</p>
+                            <p><input type="radio" name="a" value="3">Кабельная линия 0,4кВ с приминением ГНБ*</p>
+                            <p><input type="radio" name="a" value="3">Кабельная линия 6(10)кВ с приминением ГНБ*</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="source">
+                    <p class="in_2"><input type="checkbox" value="check">Строительство ТП</p>
+                    <div class="inner_wrap">
+                        <div class="left">
+                            <p><input type="radio" name="a" value="3">Строительство ТП-6(10) кВ 25 кВА</p>
+                            <p><input type="radio" name="a" value="3">Строительство ТП-6(10) кВ 40 кВА</p>
+                            <p><input type="radio" name="a" value="3">Строительство ТП-6(10) кВ 63 кВА</p>
+                            <p><input type="radio" name="a" value="3">Строительство ТП-6(10) кВ 100 кВА</p>
+                            <p><input type="radio" name="a" value="3">Строительство ТП-6(10) кВ 160 кВА</p>
+                            <p><input type="radio" name="a" value="3">Строительство ТП-6(10) кВ 250 кВА</p>
+                        </div>
+                        <div class="right">
+                            <p><input type="radio" name="a" value="3">Строительство ТП-6(10) кВ 400 кВА</p>
+                            <p><input type="radio" name="a" value="3">Строительство ТП-6(10) кВ 630 кВА</p>
+                            <p><input type="radio" name="a" value="3">Строительство ТП-6(10) кВ 2x160 кВА</p>
+                            <p><input type="radio" name="a" value="3">Строительство ТП-6(10) кВ 2x250 кВА</p>
+                            <p><input type="radio" name="a" value="3">Строительство ТП-6(10) кВ 2x400 кВА</p>
+                        </div>
+                    </div>
+                </div>
+                <p class="bottom"><b>*ГНБ -</b> Горизонтальное бурение или Горизонтальное направленное бурение — управляемый бестраншейный <br>
+                    метод прокладывания подземных коммуникаций, основанный на использовании специальных буровых <br>
+                    комплексов.</p>
+            </div>
+        </div>
+        <div id="forth_2">
+            <div class="index">
+                <p>Индекс изменения сметной стоимости за:</p>
+                <div class="sqrt">3</div>
+                <p>квартал</p>
+            </div>
+            <div class="source">
+                <div class="select">
+                    <select>
+                        <option value="0" disabled selected> Выберите тип линии </option>
+                        <option value="1">Воздушная линия 0,4кВ</option>
+                        <option value="2">Воздушная линия изолированная 0,4кВ</option>
+                        <option value="3">Воздушная линия 6-10кВ</option>
+                        <option value="4">Воздушная линия изолированная 6-10кВ</option>
+                        <option value="5">Кабельная линия 0,4кВ</option>
+                        <option value="6">Кабельная линия 6-10кВ</option>
+                        <option value="7">Кабельная линия 0,4кВ с приминением ГНБ*</option>
+                    </select>
+                </div>
+                <div class="long">
+                    <input type="text" placeholder="длина"> <span>км</span>
+                </div>
+                <div class="index">
+                    <p>Индекс</p>
+                    <div class="sqrt">4.95</div>
+                </div>
+            </div>
+                <form action="#">
+                    <button>Добавить линию</button>
+                </form>
+        </div>
+        <div id="fifth">
+            <div class="button">
+                <form action="#">
+                    <button>Рассчитать стоимость технологического присоединения</button>
+                </form>
+            </div>
+            <div class="result">
+                <p>Результаты:</p>
+                <div class="total">
+                    <div class="left">
+                        <p>Итог по ставке за максимальную мощность (руб./кВт)</p>
+                        <p>Итог по стандартизированной ставке (руб./км)</p>
+                    </div>
+                    <div class="right">
+                        <p>0,00 руб.</p>
+                        <p>0,00 руб.</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -77,9 +187,10 @@
         el: '#calculate',
         data: {
             title: 'КАЛЬКУЛЯТОР ТЕХНОЛОГИЧЕСКОГО ПРИСОЕДИНЕНИЯ',
-            S1: 0,             //вид заявки (1 - постоянное, 2 - временное)
-            N: "",               //заявленная мощность
-            Conditions: false   //признак условия
+            S1: 1,             //вид заявки (1 - постоянное, 2 - временное)
+            N: 0,               //заявленная мощность
+            Conditions: true,   //признак условия
+            Build: false
         }
     })
 </script>

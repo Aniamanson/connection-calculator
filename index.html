@@ -30,8 +30,8 @@
             <div class="right">
                 <div class="input">
                     <span>Категория надежности</span>
-                    <p><input type="radio" name="a" value="3"> 3 – Питание от одного независимого источника</p>
-                    <p><input type="radio" name="a" value="2" :disabled="!Conditions && N<=15"> 2 – Питание от двух независимых источников</p>
+                    <p><input type="radio" name="a" value="3"> 3 – Питание от одного <span>независимого</span> источника</p>
+                    <p><input type="radio" name="a" value="2" :disabled="!Conditions && N<=15"> 2 – Питание от двух <span>независимых</span> источников</p>
                 </div>
             </div>
         </div>
@@ -132,7 +132,7 @@
             <div class="index">
                 <p>Индекс изменения сметной стоимости за:</p>
                 <div class="sqrt">3</div>
-                <p>квартал</p>
+                <p class="quart">квартал</p>
             </div>
             <div class="source">
                 <div class="select">
@@ -163,7 +163,7 @@
         <div id="fifth">
             <div class="button">
                 <form action="#">
-                    <button>Рассчитать стоимость технологического присоединения</button>
+                    <button>Рассчитать стоимость <span>технологического присоединения</span></button>
                 </form>
             </div>
             <div class="result">

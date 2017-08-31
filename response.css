@@ -201,7 +201,7 @@
     }
 
     #third {
-        padding: 0 15px 0 40px;
+        padding: 0 15px 0 15px;
         margin-bottom: 25px;
 
     }
@@ -345,7 +345,9 @@
     }
 
     .total {
-        background: none;
+        background-position: 160px;
+        background-size: cover;
+
 
     }
 
@@ -354,7 +356,7 @@
     }
 
     .total .score {
-        color: #0d3959;
+        color: white;
         font-weight: 500;
         padding-top: 53px;
     }

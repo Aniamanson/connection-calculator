@@ -21,23 +21,23 @@
                         <option value="2">2. Временное присоединение</option>
                     </select>
                 </div>
-                <div class="input">
-                    <label for="N">Заявляемая мощность</label>
+                <div class="input_1">
+                    <label>Заявляемая мощность
                     <input type="text" id="N" v-model="N">
-                    кВт
+                    кВт</label>
                 </div>
             </div>
             <div class="right">
                 <div class="input">
                     <p class="safe"> Категория надежности </p>
-                    <p><input type="radio" name="a" value="3"> 3 – Питание от одного <span>независимого</span> источника</p>
-                    <p><input type="radio" name="a" value="2" :disabled="!Conditions && N<=15"> 2 – Питание от двух <span>независимых</span> источников</p>
+                    <p><label><input type="radio" name="a" value="3"> 3 – Питание от одного <span>независимого</span> источника</label></p>
+                    <p><label><input type="radio" name="a" value="2" :disabled="!Conditions && N<=15"> 2 – Питание от двух <span>независимых</span> источников</label></p>
                 </div>
             </div>
         </div>
         <div id="second">
             <div class="check" v-if="N<=15 && S1 == 1">
-                <p><input type="checkbox" value="check" v-model="Conditions">При условиях:</p>
+                <p><label><input type="checkbox" id="" value="check" v-model="Conditions"><span class="jq-checkbox"></span> При условиях:</label></p>
                 <ul>
                     <li> если в границах муниципальных районов, городских округов и на внутригородских территориях городов федерального значения одно и то же лицо может осуществить технологическое присоединение энергопринимающих устройств, принадлежащих ему на праве собственности или на ином законном основании, с платой за технологическое присоединение в размере, не превышающем 550 рублей, не более одного раза в течение 3 лет.</li>
                     <li> при технологическом присоединении энергопринимающих устройств, принадлежащих лицам, владеющим земельным участком по договору аренды, заключенному на срок не более одного года, на котором расположены присоединяемые энергопринимающие устройства;</li>
@@ -55,7 +55,7 @@
                     </select>
                 </div>
                 <div class="check">
-                    <p><input type="checkbox" value="check" v-model="Build">Необходимо строительство</p>
+                    <p><label><input type="checkbox" value="check" v-model="Build"><span class="jq-checkbox"></span> Необходимо строительство</label></p>
                 </div>
                 <div class="calc">
                     <select size="1">
@@ -73,16 +73,16 @@
                     <p class="in">Строительство линий по первому источнику питания</p>
                     <div class="inner_wrap">
                         <div class="left">
-                            <p><input type="radio" name="a" value="3">Воздушная линия 0,4кВ</p>
-                            <p><input type="radio" name="a" value="3">Воздушная линия изолированная 0,4кВ</p>
-                            <p><input type="radio" name="a" value="3">Воздушная линия 6-10кВ</p>
-                            <p><input type="radio" name="a" value="3">Воздушная линия изолированная 6-10кВ</p>
+                            <p><label><input type="radio" name="a" value="3">Воздушная линия 0,4кВ</label></p>
+                            <p><label><input type="radio" name="a" value="3">Воздушная линия изолированная 0,4кВ</label></p>
+                            <p><label><input type="radio" name="a" value="3">Воздушная линия 6-10кВ</label></p>
+                            <p><label><input type="radio" name="a" value="3">Воздушная линия изолированная 6-10кВ</label></p>
                         </div>
                         <div class="right">
-                            <p><input type="radio" name="a" value="3">Кабельная линия 0,4кВ</p>
-                            <p><input type="radio" name="a" value="3">Кабельная линия 6-10кВ</p>
-                            <p><input type="radio" name="a" value="3">Кабельная линия 0,4кВ с приминением ГНБ*</p>
-                            <p><input type="radio" name="a" value="3">Кабельная линия 6(10)кВ с приминением ГНБ*</p>
+                            <p><label><input type="radio" name="a" value="3">Кабельная линия 0,4кВ</label></p>
+                            <p><label><input type="radio" name="a" value="3">Кабельная линия 6-10кВ</label></p>
+                            <p><label><input type="radio" name="a" value="3">Кабельная линия 0,4кВ с приминением ГНБ*</label></p>
+                            <p><label><input type="radio" name="a" value="3">Кабельная линия 6(10)кВ с приминением ГНБ*</label></p>
                         </div>
                     </div>
                 </div>
@@ -90,36 +90,36 @@
                     <p class="in">Строительство линий по второму источнику питания</p>
                     <div class="inner_wrap">
                         <div class="left">
-                            <p><input type="radio" name="b" value="3">Воздушная линия 0,4кВ</p>
-                            <p><input type="radio" name="b" value="3">Воздушная линия изолированная 0,4кВ</p>
-                            <p><input type="radio" name="b" value="3">Воздушная линия 6-10кВ</p>
-                            <p><input type="radio" name="b" value="3">Воздушная линия изолированная 6-10кВ</p>
+                            <p><label><input type="radio" name="b" value="3">Воздушная линия 0,4кВ</label></p>
+                            <p><label><input type="radio" name="b" value="3">Воздушная линия изолированная 0,4кВ</label></p>
+                            <p><label><input type="radio" name="b" value="3">Воздушная линия 6-10кВ</label></p>
+                            <p><label><input type="radio" name="b" value="3">Воздушная линия изолированная 6-10кВ</label></p>
                         </div>
                         <div class="right">
-                            <p><input type="radio" name="b" value="3">Кабельная линия 0,4кВ</p>
-                            <p><input type="radio" name="b" value="3">Кабельная линия 6-10кВ</p>
-                            <p><input type="radio" name="b" value="3">Кабельная линия 0,4кВ с приминением ГНБ*</p>
-                            <p><input type="radio" name="b" value="3">Кабельная линия 6(10)кВ с приминением ГНБ*</p>
+                            <p><label><input type="radio" name="b" value="3">Кабельная линия 0,4кВ</label></p>
+                            <p><label><input type="radio" name="b" value="3">Кабельная линия 6-10кВ</label></p>
+                            <p><label><input type="radio" name="b" value="3">Кабельная линия 0,4кВ с приминением ГНБ*</label></p>
+                            <p><label><input type="radio" name="b" value="3">Кабельная линия 6(10)кВ с приминением ГНБ*</label></p>
                         </div>
                     </div>
                 </div>
                 <div class="source">
-                    <p class="in_2"><input type="checkbox" value="check">Строительство ТП</p>
+                    <p class="in_2"><label><input type="checkbox" value="check">Строительство ТП</label></p>
                     <div class="inner_wrap">
                         <div class="left">
-                            <p><input type="radio" name="a" value="3">Строительство ТП-6(10) кВ 25 кВА</p>
-                            <p><input type="radio" name="a" value="3">Строительство ТП-6(10) кВ 40 кВА</p>
-                            <p><input type="radio" name="a" value="3">Строительство ТП-6(10) кВ 63 кВА</p>
-                            <p><input type="radio" name="a" value="3">Строительство ТП-6(10) кВ 100 кВА</p>
-                            <p><input type="radio" name="a" value="3">Строительство ТП-6(10) кВ 160 кВА</p>
-                            <p><input type="radio" name="a" value="3">Строительство ТП-6(10) кВ 250 кВА</p>
+                            <p><label><input type="radio" name="a" value="3">Строительство ТП-6(10) кВ 25 кВА</label></p>
+                            <p><label><input type="radio" name="a" value="3">Строительство ТП-6(10) кВ 40 кВА</label></p>
+                            <p><label><input type="radio" name="a" value="3">Строительство ТП-6(10) кВ 63 кВА</label></p>
+                            <p><label><input type="radio" name="a" value="3">Строительство ТП-6(10) кВ 100 кВА</label></p>
+                            <p><label><input type="radio" name="a" value="3">Строительство ТП-6(10) кВ 160 кВА</label></p>
+                            <p><label><input type="radio" name="a" value="3">Строительство ТП-6(10) кВ 250 кВА</label></p>
                         </div>
                         <div class="right">
-                            <p><input type="radio" name="a" value="3">Строительство ТП-6(10) кВ 400 кВА</p>
-                            <p><input type="radio" name="a" value="3">Строительство ТП-6(10) кВ 630 кВА</p>
-                            <p><input type="radio" name="a" value="3">Строительство ТП-6(10) кВ 2x160 кВА</p>
-                            <p><input type="radio" name="a" value="3">Строительство ТП-6(10) кВ 2x250 кВА</p>
-                            <p><input type="radio" name="a" value="3">Строительство ТП-6(10) кВ 2x400 кВА</p>
+                            <p><label><input type="radio" name="a" value="3">Строительство ТП-6(10) кВ 400 кВА</label></p>
+                            <p><label><input type="radio" name="a" value="3">Строительство ТП-6(10) кВ 630 кВА</label></p>
+                            <p><label><input type="radio" name="a" value="3">Строительство ТП-6(10) кВ 2x160 кВА</label></p>
+                            <p><label><input type="radio" name="a" value="3">Строительство ТП-6(10) кВ 2x250 кВА</label></p>
+                            <p><label><input type="radio" name="a" value="3">Строительство ТП-6(10) кВ 2x400 кВА</label></p>
                         </div>
                     </div>
                 </div>
@@ -154,7 +154,6 @@
                         <div class="sqrt">4.95</div>
                     </div>
                 </div>
-
             </div>
                 <form action="#">
                     <button>Добавить линию</button>

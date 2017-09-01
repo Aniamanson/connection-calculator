@@ -82,6 +82,23 @@ select {
     font-size: 16px;
 }
 
+#first .input_1 {
+    border: #59778c 1px solid;
+    padding: 15px 15px 19px 15px;
+    background: white;
+    color: black;
+    font-size: 16px;
+}
+
+#first .input_1 input {
+    border: none;
+    border-bottom: #59778c 1px solid;
+    height: 28px;
+    width: 100px;
+    text-align: center;
+    vertical-align: bottom;
+}
+
 .input .safe {
     padding: 0;
     font-size: 16px;
@@ -93,14 +110,26 @@ select {
 
 #second {
     position: relative;
-    padding: 0 40px 30px 40px;
+    padding: 0 40px 0 40px;
 }
 
 .check input {
-    vertical-align: bottom;
+    position: absolute;
+    left: -9999px;
+
+}
+
+.jq-checkbox {
     display: inline-block;
-    width:19px;
-    height:19px;
+    position: relative;
+    width:25px;
+    height:25px;
+    background: url("img/checkbox.png") no-repeat;
+    top: -2px;
+}
+
+.jq-checkbox:checked {
+    background-position: -25px 0;
 }
 
 .check p {
@@ -124,6 +153,7 @@ select {
 #third {
     position: relative;
     padding: 0 40px 0 40px;
+    margin-top: 30px;
 }
 
 .calc {
@@ -161,7 +191,8 @@ select {
 
 .source .in {
     padding: 10px 10px 10px 30px;
-    color: black;
+    background: #4693ea;
+    color: white;
     font-size: 14px;
     font-weight: 500;
 }
@@ -188,7 +219,8 @@ select {
 
 .source .in_2 {
     padding: 10px 10px 10px 10px;
-    color: black;
+    background: #4693ea;
+    color: white;
     font-size: 14px;
     font-weight: 500;
 }
@@ -202,7 +234,7 @@ select {
 
 #fifth {
     margin: 25px 40px 0 40px;
-    width: 1120px;
+    width: auto;
 }
 
 #fifth button {
@@ -336,6 +368,7 @@ select {
     font-weight: 500;
     margin: 25px;
     border-radius: 5px;
+    width: 220px;
 }
 
 #forth_2 button:hover {

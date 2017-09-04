@@ -37,7 +37,7 @@
         </div>
         <div id="second">
             <div class="check" v-if="N<=15 && S1 == 1">
-                <p><label><input type="checkbox" id="" value="check" v-model="Conditions"><span class="jq-checkbox"></span> При условиях:</label></p>
+                <p><label><input type="checkbox" id="" value="check" v-model="Conditions"><span class="jq-checkbox"  v-bind:class="{ checked: Conditions }"></span> При условиях:</label></p>
                 <ul>
                     <li> если в границах муниципальных районов, городских округов и на внутригородских территориях городов федерального значения одно и то же лицо может осуществить технологическое присоединение энергопринимающих устройств, принадлежащих ему на праве собственности или на ином законном основании, с платой за технологическое присоединение в размере, не превышающем 550 рублей, не более одного раза в течение 3 лет.</li>
                     <li> при технологическом присоединении энергопринимающих устройств, принадлежащих лицам, владеющим земельным участком по договору аренды, заключенному на срок не более одного года, на котором расположены присоединяемые энергопринимающие устройства;</li>
@@ -55,7 +55,7 @@
                     </select>
                 </div>
                 <div class="check">
-                    <p><label><input type="checkbox" value="check" v-model="Build"><span class="jq-checkbox"></span> Необходимо строительство</label></p>
+                    <p><label><input type="checkbox" value="check" v-model="Build"><span class="jq-checkbox" v-bind:class="{ checked: Build }"></span> Необходимо строительство</label></p>
                 </div>
                 <div class="calc">
                     <select size="1">
@@ -73,16 +73,16 @@
                     <p class="in">Строительство линий по первому источнику питания</p>
                     <div class="inner_wrap">
                         <div class="left">
-                            <p><label><input type="radio" name="a" value="3">Воздушная линия 0,4кВ</label></p>
-                            <p><label><input type="radio" name="a" value="3">Воздушная линия изолированная 0,4кВ</label></p>
-                            <p><label><input type="radio" name="a" value="3">Воздушная линия 6-10кВ</label></p>
-                            <p><label><input type="radio" name="a" value="3">Воздушная линия изолированная 6-10кВ</label></p>
+                            <p><label><input type="checkbox" name="a" value="3">Воздушная линия 0,4кВ</label></p>
+                            <p><label><input type="checkbox" name="a" value="3">Воздушная линия изолированная 0,4кВ</label></p>
+                            <p><label><input type="checkbox" name="a" value="3">Воздушная линия 6-10кВ</label></p>
+                            <p><label><input type="checkbox" name="a" value="3">Воздушная линия изолированная 6-10кВ</label></p>
                         </div>
                         <div class="right">
-                            <p><label><input type="radio" name="a" value="3">Кабельная линия 0,4кВ</label></p>
-                            <p><label><input type="radio" name="a" value="3">Кабельная линия 6-10кВ</label></p>
-                            <p><label><input type="radio" name="a" value="3">Кабельная линия 0,4кВ с приминением ГНБ*</label></p>
-                            <p><label><input type="radio" name="a" value="3">Кабельная линия 6(10)кВ с приминением ГНБ*</label></p>
+                            <p><label><input type="checkbox" name="a" value="3">Кабельная линия 0,4кВ</label></p>
+                            <p><label><input type="checkbox" name="a" value="3">Кабельная линия 6-10кВ</label></p>
+                            <p><label><input type="checkbox" name="a" value="3">Кабельная линия 0,4кВ с приминением ГНБ*</label></p>
+                            <p><label><input type="checkbox" name="a" value="3">Кабельная линия 6(10)кВ с приминением ГНБ*</label></p>
                         </div>
                     </div>
                 </div>
@@ -90,16 +90,16 @@
                     <p class="in">Строительство линий по второму источнику питания</p>
                     <div class="inner_wrap">
                         <div class="left">
-                            <p><label><input type="radio" name="b" value="3">Воздушная линия 0,4кВ</label></p>
-                            <p><label><input type="radio" name="b" value="3">Воздушная линия изолированная 0,4кВ</label></p>
-                            <p><label><input type="radio" name="b" value="3">Воздушная линия 6-10кВ</label></p>
-                            <p><label><input type="radio" name="b" value="3">Воздушная линия изолированная 6-10кВ</label></p>
+                            <p><label><input type="checkbox" name="b" value="3">Воздушная линия 0,4кВ</label></p>
+                            <p><label><input type="checkbox" name="b" value="3">Воздушная линия изолированная 0,4кВ</label></p>
+                            <p><label><input type="checkbox" name="b" value="3">Воздушная линия 6-10кВ</label></p>
+                            <p><label><input type="checkbox" name="b" value="3">Воздушная линия изолированная 6-10кВ</label></p>
                         </div>
                         <div class="right">
-                            <p><label><input type="radio" name="b" value="3">Кабельная линия 0,4кВ</label></p>
-                            <p><label><input type="radio" name="b" value="3">Кабельная линия 6-10кВ</label></p>
-                            <p><label><input type="radio" name="b" value="3">Кабельная линия 0,4кВ с приминением ГНБ*</label></p>
-                            <p><label><input type="radio" name="b" value="3">Кабельная линия 6(10)кВ с приминением ГНБ*</label></p>
+                            <p><label><input type="checkbox" name="b" value="3">Кабельная линия 0,4кВ</label></p>
+                            <p><label><input type="checkbox" name="b" value="3">Кабельная линия 6-10кВ</label></p>
+                            <p><label><input type="checkbox" name="b" value="3">Кабельная линия 0,4кВ с приминением ГНБ*</label></p>
+                            <p><label><input type="checkbox" name="b" value="3">Кабельная линия 6(10)кВ с приминением ГНБ*</label></p>
                         </div>
                     </div>
                 </div>
@@ -129,6 +129,7 @@
             </div>
         </div>
         <div id="forth_2">
+                <p class="options">Параметры для расчета стоимости по ставке за максимальную мощность</p>
             <div class="index">
                 <p>Индекс изменения сметной стоимости за:</p>
                 <div class="sqrt">3</div>
@@ -155,15 +156,14 @@
                     </div>
                 </div>
             </div>
-                <form action="#">
                     <button>Добавить линию</button>
-                </form>
+                <p class="bottom"><b>*ГНБ -</b> Горизонтальное бурение или Горизонтальное направленное бурение — управляемый бестраншейный <br>
+                    метод прокладывания подземных коммуникаций, основанный на использовании специальных буровых <br>
+                    комплексов.</p>
         </div>
         <div id="fifth">
             <div class="button">
-                <form action="#">
-                    <button>Рассчитать стоимость <span>технологического присоединения</span></button>
-                </form>
+                   <!-- <button>Рассчитать стоимость <span>технологического присоединения</span></button> -->
             </div>
             <div class="result">
                 <p>Результаты:</p>

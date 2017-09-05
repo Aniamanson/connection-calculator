@@ -376,7 +376,12 @@ select {
 }
 
 
-
+.block {
+    margin: 25px 40px 0 40px;
+    width: auto;
+    background: #f2f4f5;
+    border: #59778c 2px solid;
+}
 
 
 

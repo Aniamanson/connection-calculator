@@ -11,7 +11,9 @@
 <body>
 <div class="site-body wrapper" id="calculate">
     <h1 class="title-box">{{title}}</h1>
+
     <div class="inform-page">
+        <!-- вид заявки / категория / мощность -->
         <div id="first">
             <div class="left">
                 <div class="select">
@@ -35,6 +37,8 @@
                 </div>
             </div>
         </div>
+
+        <!-- при условиях -->
         <div id="second">
             <div class="check" v-if="N<=15 && S1 == 1">
                 <p><label><input type="checkbox" id="" value="check" v-model="Conditions"><span class="jq-checkbox"  v-bind:class="{ checked: Conditions }"></span> При условиях:</label></p>
@@ -45,10 +49,12 @@
                 </ul>
             </div>
         </div>
+
+        <!-- класс напряжения / строительство / расчет по -->
         <div id="third">
             <div id="build" v-if="Conditions || S1 == 1 && N>15">
                 <div class="select">
-                    <select size="1">
+                    <select size="1" >
                         <option disabled selected> Класс напряжения </option>
                         <option value="0.4">0,4 кВ</option>
                         <option value="6(10)">6 (10) кВ</option>
@@ -58,15 +64,17 @@
                     <p><label><input type="checkbox" value="check" v-model="Build"><span class="jq-checkbox" v-bind:class="{ checked: Build }"></span> Необходимо строительство</label></p>
                 </div>
                 <div class="calc">
-                    <select size="1">
-                        <option disabled selected> Расчет по: </option>
-                        <option value="мощности">Мощности</option>
-                        <option value="стандартизированной ставке">Стандартизированной ставке</option>
+                    <select size="1" v-model="Calculate">
+                        <option value="0" disabled selected> Расчет по: </option>
+                        <option value="1">Мощности</option>
+                        <option value="2">Стандартизированной ставке</option>
                     </select>
                 </div>
             </div>
         </div>
-        <div id="forth" v-if="Conditions && Build || S1 == 1 && N>15 ">
+
+        <!-- по мощности -->
+        <div id="forth" v-if="Conditions && Build && Calculate == 1 || S1 == 1 && N>15 && Calculate == 1">
             <p class="options">Параметры для расчета стоимости по ставке за максимальную мощность</p>
             <div class="wrap">
                 <div class="source">
@@ -104,22 +112,30 @@
                     </div>
                 </div>
                 <div class="source">
-                    <p class="in_2"><label><input type="checkbox" value="check">Строительство ТП</label></p>
+                    <p class="in_2 check">
+                        <label>
+                            <input type="checkbox" value="check" v-model="BuildTP">
+                            <span class="jq-checkbox" v-bind:class="{ checked: BuildTP }"></span> Строительство ТП
+                        </label>
+                    </p>
                     <div class="inner_wrap">
                         <div class="left">
-                            <p><label><input type="radio" name="a" value="3">Строительство ТП-6(10) кВ 25 кВА</label></p>
-                            <p><label><input type="radio" name="a" value="3">Строительство ТП-6(10) кВ 40 кВА</label></p>
-                            <p><label><input type="radio" name="a" value="3">Строительство ТП-6(10) кВ 63 кВА</label></p>
-                            <p><label><input type="radio" name="a" value="3">Строительство ТП-6(10) кВ 100 кВА</label></p>
-                            <p><label><input type="radio" name="a" value="3">Строительство ТП-6(10) кВ 160 кВА</label></p>
-                            <p><label><input type="radio" name="a" value="3">Строительство ТП-6(10) кВ 250 кВА</label></p>
+                            <p><label><input type="radio" name="a" value="3" :disabled="!BuildTP">Строительство ТП-6(10) кВ 25 кВА</label></p>
+                            <p><label><input type="radio" name="a" value="3" :disabled="!BuildTP">Строительство ТП-6(10) кВ 40 кВА</label></p>
+                            <p><label><input type="radio" name="a" value="3" :disabled="!BuildTP">Строительство ТП-6(10) кВ 63 кВА</label></p>
+                            <p><label><input type="radio" name="a" value="3" :disabled="!BuildTP">Строительство ТП-6(10) кВ 100 кВА</label></p>
+                            <p><label><input type="radio" name="a" value="3" :disabled="!BuildTP">Строительство ТП-6(10) кВ 160 кВА</label></p>
+                            <p><label><input type="radio" name="a" value="3" :disabled="!BuildTP">Строительство ТП-6(10) кВ 250 кВА</label></p>
+                            <p><label><input type="radio" name="a" value="3" :disabled="!BuildTP">Строительство ТП-6(10) кВ 400 кВА</label></p>
                         </div>
                         <div class="right">
-                            <p><label><input type="radio" name="a" value="3">Строительство ТП-6(10) кВ 400 кВА</label></p>
-                            <p><label><input type="radio" name="a" value="3">Строительство ТП-6(10) кВ 630 кВА</label></p>
-                            <p><label><input type="radio" name="a" value="3">Строительство ТП-6(10) кВ 2x160 кВА</label></p>
-                            <p><label><input type="radio" name="a" value="3">Строительство ТП-6(10) кВ 2x250 кВА</label></p>
-                            <p><label><input type="radio" name="a" value="3">Строительство ТП-6(10) кВ 2x400 кВА</label></p>
+                            <p><label><input type="radio" name="a" value="3" :disabled="!BuildTP">Строительство ТП-6(10) кВ 630 кВА</label></p>
+                            <p><label><input type="radio" name="a" value="3" :disabled="!BuildTP">Строительство ТП-6(10) кВ 2x160 кВА</label></p>
+                            <p><label><input type="radio" name="a" value="3" :disabled="!BuildTP">Строительство ТП-6(10) кВ 2x250 кВА</label></p>
+                            <p><label><input type="radio" name="a" value="3" :disabled="!BuildTP">Строительство ТП-6(10) кВ 2x400 кВА</label></p>
+                            <p><label><input type="radio" name="a" value="3" :disabled="!BuildTP">Строительство ТП-6(10) кВ 2x630 кВА</label></p>
+                            <p><label><input type="radio" name="a" value="3" :disabled="!BuildTP">Строительство ТП-6(10) кВ 2x1000 кВА</label></p>
+                            <p><label><input type="radio" name="a" value="3" :disabled="!BuildTP">Строительство ТП-6(10) кВ 2x1250 кВА</label></p>
                         </div>
                     </div>
                 </div>
@@ -128,8 +144,10 @@
                     комплексов.</p>
             </div>
         </div>
-        <div id="forth_2">
-                <p class="options">Параметры для расчета стоимости по ставке за максимальную мощность</p>
+
+        <!-- по стандартизированной ставке -->
+        <div id="forth_2" v-if="Conditions && Build && Calculate == 2 || S1 == 1 && N>15 && Calculate == 2">
+                <p class="options">Параметры для расчета стоимости по стандартизированной ставке</p>
             <div class="index">
                 <p>Индекс изменения сметной стоимости за:</p>
                 <div class="sqrt">3</div>
@@ -156,11 +174,46 @@
                     </div>
                 </div>
             </div>
-                    <button>Добавить линию</button>
-                <p class="bottom"><b>*ГНБ -</b> Горизонтальное бурение или Горизонтальное направленное бурение — управляемый бестраншейный <br>
+            <button>Добавить линию</button>
+
+
+            <p class="bottom"><b>*ГНБ -</b> Горизонтальное бурение или Горизонтальное направленное бурение — управляемый бестраншейный <br>
                     метод прокладывания подземных коммуникаций, основанный на использовании специальных буровых <br>
                     комплексов.</p>
         </div>
+
+        <div class="block" v-if="Conditions && Build && Calculate == 2 || S1 == 1 && N>15 && Calculate == 2">
+            <div class="source">
+                <p class="in_2 check">
+                    <label>
+                        <input type="checkbox" value="check" v-model="BuildTP">
+                        <span class="jq-checkbox" v-bind:class="{ checked: BuildTP }"></span> Строительство ТП
+                    </label>
+                </p>
+                <div class="inner_wrap">
+                    <div class="left">
+                        <p><label><input type="radio" name="a" value="3" :disabled="!BuildTP">Строительство ТП-6(10) кВ 25 кВА</label></p>
+                        <p><label><input type="radio" name="a" value="3" :disabled="!BuildTP">Строительство ТП-6(10) кВ 40 кВА</label></p>
+                        <p><label><input type="radio" name="a" value="3" :disabled="!BuildTP">Строительство ТП-6(10) кВ 63 кВА</label></p>
+                        <p><label><input type="radio" name="a" value="3" :disabled="!BuildTP">Строительство ТП-6(10) кВ 100 кВА</label></p>
+                        <p><label><input type="radio" name="a" value="3" :disabled="!BuildTP">Строительство ТП-6(10) кВ 160 кВА</label></p>
+                        <p><label><input type="radio" name="a" value="3" :disabled="!BuildTP">Строительство ТП-6(10) кВ 250 кВА</label></p>
+                        <p><label><input type="radio" name="a" value="3" :disabled="!BuildTP">Строительство ТП-6(10) кВ 400 кВА</label></p>
+                    </div>
+                    <div class="right">
+                        <p><label><input type="radio" name="a" value="3" :disabled="!BuildTP">Строительство ТП-6(10) кВ 630 кВА</label></p>
+                        <p><label><input type="radio" name="a" value="3" :disabled="!BuildTP">Строительство ТП-6(10) кВ 2x160 кВА</label></p>
+                        <p><label><input type="radio" name="a" value="3" :disabled="!BuildTP">Строительство ТП-6(10) кВ 2x250 кВА</label></p>
+                        <p><label><input type="radio" name="a" value="3" :disabled="!BuildTP">Строительство ТП-6(10) кВ 2x400 кВА</label></p>
+                        <p><label><input type="radio" name="a" value="3" :disabled="!BuildTP">Строительство ТП-6(10) кВ 2x630 кВА</label></p>
+                        <p><label><input type="radio" name="a" value="3" :disabled="!BuildTP">Строительство ТП-6(10) кВ 2x1000 кВА</label></p>
+                        <p><label><input type="radio" name="a" value="3" :disabled="!BuildTP">Строительство ТП-6(10) кВ 2x1250 кВА</label></p>
+                    </div>
+                </div>
+            </div>
+            <p></p>
+        </div>
+        <!-- Расчет -->
         <div id="fifth">
             <div class="button">
                    <!-- <button>Рассчитать стоимость <span>технологического присоединения</span></button> -->
@@ -191,7 +244,9 @@
             S1: 1,             //вид заявки (1 - постоянное, 2 - временное)
             N: 0,               //заявленная мощность
             Conditions: true,   //признак условия
-            Build: false
+            Build: false,       //необходимо строительство
+            BuildTP: false,
+            Calculate: 0,       //расчет по power-мощности, standart-стандартизированной
         }
     })
 </script>
